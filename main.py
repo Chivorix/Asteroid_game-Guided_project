@@ -1,5 +1,7 @@
 import pygame
 from constants import *
+from player import Player
+
 
 
 
@@ -12,9 +14,21 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+    Player.containers = (updatable, drawable)
+
+    player = Player(PLAYER_X, PLAYER_Y)
+
     while True:
+        
         screen.fill("black")
-        pygame.display.flip()           # double-buffer mechanic, this is basically a copy-paste function
+        for obj in updatable:
+            obj.update(dt)
+        for obj in drawable:
+            obj.draw(screen)
+
+        pygame.display.flip()           # double-buffer mechanic, this is basically a copy-paste function, rendering...
 
         for e in pygame.event.get():
             if e.type == pygame.QUIT:

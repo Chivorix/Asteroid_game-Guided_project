@@ -3,6 +3,8 @@ from constants import *
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from shot import Shot
+
 
 def main():
     pygame.init()
@@ -16,10 +18,12 @@ def main():
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    bullets = pygame.sprite.Group()
 
     Asteroid.containers = (updatable, drawable, asteroids)
     AsteroidField.containers = (updatable)
     Player.containers = (updatable, drawable)
+    Shot.containers = (bullets, drawable, updatable)
 
     asteroid_spawner = AsteroidField()
     player = Player(PLAYER_X, PLAYER_Y)
@@ -35,6 +39,10 @@ def main():
             if obj.collision(player):
                 print("Game Over!")
                 return 
+            for bullet in bullets:
+                if obj.collision(bullet):
+                    obj.split()
+                    bullet.kill()
 
         pygame.display.flip()           # double-buffer mechanic, this is basically a copy-paste function, rendering...
 

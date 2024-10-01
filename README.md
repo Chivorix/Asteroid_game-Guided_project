@@ -7,7 +7,7 @@ I had a great time working on this project! Here are some key concepts that were
 - **Python Virtual Environment:** Set up a virtual environment to manage dependencies.
 - **Pygame Library:** Worked with Pygame, a non-default Python library for game development.
 
-## Game Development Concepts
+## Game Development Concepts :video_game:
 
 These concepts transformed my understanding of video games and demystified the game development process for me:
 
@@ -16,12 +16,12 @@ These concepts transformed my understanding of video games and demystified the g
 - **Game Sprites:** Implemented visual elements for characters and objects.
 - **Game Object Movement:** Developed mechanics for how objects move within the game.
 - **Pygame Groups/Containers:** Organized game objects for efficient management.
-- **Collision Detection:** Implemented systems to manage interactions between objects.
+- **Collision Detection:** Implemented systems to manage interactions between objects. :collision:
 - **Mathematics:** Discovered how essential math is for game development, from physics calculations to understanding transformations and movement. It really highlighted the importance of mathematical concepts in creating engaging gameplay.
   
 **This experience not only enhanced my technical skills but also deepened my appreciation for game design!**
 
-### Side Quests:
+### Side Quests: :metal:
 
 The course also offered a list of challenges for those eager to dive deeper, and I’m excited to tackle these in the future!
 

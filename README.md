@@ -1,4 +1,5 @@
 # Asteroid_game
+
 "Build a clone of the classic Asteroids game using Pygame and object-oriented programming concepts. This guided project will help you understand how to use Pygame to create a game loop, handle user input, and manage game state. You'll also learn how to use object-oriented programming to create game objects and manage their interactions." --> Boot.dev
 
 I had a great time working on this project! Here are some key concepts that were introduced and enforced:
@@ -18,7 +19,7 @@ These concepts transformed my understanding of video games and demystified the g
 - **Pygame Groups/Containers:** Organized game objects for efficient management.
 - **Collision Detection:** Implemented systems to manage interactions between objects. :collision:
 - **Mathematics:** Discovered how essential math is for game development, from physics calculations to understanding transformations and movement. It really highlighted the importance of mathematical concepts in creating engaging gameplay.
-  
+
 **This experience not only enhanced my technical skills but also deepened my appreciation for game design!**
 
 ### Side Quests: :metal:
@@ -26,6 +27,12 @@ These concepts transformed my understanding of video games and demystified the g
 The course also offered a list of challenges for those eager to dive deeper, and I’m excited to tackle these in the future!
 
 - Add a scoring system
+
+  1. added 3 variables in constants.py representing the 3 lvl's of asteroid worth points
+  2. make a class for making the score object
+  3. set up a point system based on the asteroids radius + penalty with death
+  4. Set up high score mechanic
+
 - Implement multiple lives and respawning
 - Add an explosion effect for the asteroids
 - Add acceleration to the player movement

@@ -26,14 +26,8 @@ These concepts transformed my understanding of video games and demystified the g
 
 The course also offered a list of challenges for those eager to dive deeper, and I’m excited to tackle these in the future!
 
-- Add a scoring system
-
-  1. added 3 variables in constants.py representing the 3 lvl's of asteroid worth points
-  2. make a class for making the score object
-  3. set up a point system based on the asteroids radius + penalty with death
-  4. Set up high score mechanic
-
-- Implement multiple lives and respawning
+- Add a scoring system :white_check_mark:
+- Implement multiple lives and respawning :white_check_mark:
 - Add an explosion effect for the asteroids
 - Add acceleration to the player movement
 - Make the objects wrap around the screen instead of disappearing

@@ -18,7 +18,8 @@ class Score:
             with open("high_score.csv", mode='r', newline='') as f:
                 list_of_rows = csv.reader(f)
                 for row in list_of_rows:
-                    self.high_score = row[0]
+                    if self.high_score < int(row[0]):
+                        self.high_score = int(row[0])
         
     def draw(self, screen):
         text_score = self.font.render(f"Score: {self.score}", True, self.color)

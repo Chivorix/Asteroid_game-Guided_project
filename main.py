@@ -5,6 +5,8 @@ from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from shot import Shot
 from score import Score
+from life_manager import LifeManager
+
 
 def main():
     pygame.init()
@@ -24,10 +26,12 @@ def main():
     AsteroidField.containers = (updatable)
     Player.containers = (updatable, drawable)
     Shot.containers = (bullets, drawable, updatable)
+    LifeManager.containers = (drawable)
 
     asteroid_spawner = AsteroidField()
     player = Player(PLAYER_X, PLAYER_Y)
     score = Score(SCREEN_WIDTH/2 - 50, 20, "blue")
+    life_manager = LifeManager()
 
     while True:
         
@@ -39,23 +43,30 @@ def main():
             obj.draw(screen)
         for obj in asteroids:
             if obj.collision(player):
-                score.sub()
-                print("Game Over!")
-                return 
+                if not life_manager.life_list: 
+                    print("Game Over!")                                     # checks if any lives are left
+                    return
+                else:
+                    score.sub()
+                    life_manager.lose_life()
+                    player.position = pygame.Vector2(PLAYER_X, PLAYER_Y)    # teleports to the starting position
+                    for asteroid in asteroids:
+                        asteroid.kill()
+
             for bullet in bullets:
                 if obj.collision(bullet):
                     obj.split()
                     bullet.kill()
                     score.add(obj.radius)
 
-        pygame.display.flip()           # double-buffer mechanic, this is basically a copy-paste function, rendering...
+        pygame.display.flip()                                               # double-buffer mechanic, this is basically a copy-paste function, rendering...
 
         for e in pygame.event.get():
             if e.type == pygame.QUIT:
                 score.save_score()
-                return                  # break the loop
+                return                                                      # break the loop
 
-        dt = clock.tick(60) / 1000      # The .tick method returns Delta-t in ms
+        dt = clock.tick(60) / 1000                                          # The .tick method returns Delta-t in ms
     
 if __name__ == "__main__":
     main()

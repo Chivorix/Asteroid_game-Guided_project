@@ -26,7 +26,7 @@ These concepts transformed my understanding of video games and demystified the g
 
 The course also offered a list of challenges for those eager to dive deeper, and I’m excited to tackle these in the future!
 
-- Add a scoring system :white_check_mark:
+- Add a scoring system :white_check_mark: !
 - Implement multiple lives and respawning :white_check_mark:
 - Add an explosion effect for the asteroids
 - Add acceleration to the player movement

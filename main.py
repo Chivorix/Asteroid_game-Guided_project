@@ -6,7 +6,7 @@ from asteroidfield import AsteroidField
 from shot import Shot
 from score import Score
 from life_manager import LifeManager
-
+from explosion_effect import Line
 
 def main():
     pygame.init()
@@ -21,22 +21,24 @@ def main():
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
     bullets = pygame.sprite.Group()
+    explosion_lines = pygame.sprite.Group()
 
     Asteroid.containers = (updatable, drawable, asteroids)
     AsteroidField.containers = (updatable)
     Player.containers = (updatable, drawable)
     Shot.containers = (bullets, drawable, updatable)
     LifeManager.containers = (drawable)
+    Line.containers = (drawable, updatable, explosion_lines)
+
 
     asteroid_spawner = AsteroidField()
     player = Player(PLAYER_X, PLAYER_Y)
-    score = Score(SCREEN_WIDTH/2 - 50, 20, "blue")
+    score = Score(SCREEN_WIDTH/2 - 50, 20, "gold")
     life_manager = LifeManager()
 
     while True:
-        
         screen.fill("black")
-        score.draw(screen)
+        score.draw(screen)       
         for obj in updatable:
             obj.update(dt)
         for obj in drawable:
@@ -52,6 +54,8 @@ def main():
                     player.position = pygame.Vector2(PLAYER_X, PLAYER_Y)    # teleports to the starting position
                     for asteroid in asteroids:
                         asteroid.kill()
+                    for line in explosion_lines:
+                        line.kill()
 
             for bullet in bullets:
                 if obj.collision(bullet):

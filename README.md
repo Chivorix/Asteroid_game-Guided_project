@@ -29,7 +29,7 @@ The course also offered a list of challenges for those eager to dive deeper, and
 - Add a scoring system :white_check_mark: !
 - Implement multiple lives and respawning :white_check_mark:
 - Add an explosion effect for the asteroids :white_check_mark:
-- Add acceleration to the player movement
+- Add acceleration to the player movement :white_check_mark:
 - Make the objects wrap around the screen instead of disappearing
 - Add a background image
 - Create different weapon types

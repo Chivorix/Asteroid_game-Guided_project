@@ -9,6 +9,7 @@ class Player(CircleShape):
 
         self.rotation = 0
         self.timer = 0
+        self.acceleration = 0
 
     def triangle(self):                                         # using vectors to draw a triangle("The Ship")
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
@@ -23,7 +24,7 @@ class Player(CircleShape):
 
     def move(self, dt):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
-        self.position += forward * PLAYER_SPEED * dt
+        self.position += forward * (PLAYER_SPEED * self.acceleration) * dt
 
     def shoot(self):
         if self.timer < 0:
@@ -38,11 +39,22 @@ class Player(CircleShape):
             self.rotate(-dt)
         if keys[pygame.K_d]:
             self.rotate(dt)
+        ### Acceleration added
         if keys[pygame.K_w]:
             self.move(-dt)
+            if self.acceleration < 200:
+                self.acceleration += 0.03
+        else:
+            if self.acceleration > 0:
+                self.acceleration -= 0.03
+                if self.acceleration < 0:
+                    self.acceleration = 0 
+            self.move(-dt)
         if keys[pygame.K_s]:
-            self.move(dt)
-
+            self.acceleration -= 0.01
+        ### ------ ###
         if keys[pygame.K_SPACE]:
             self.shoot()
         self.timer -= dt
+
+        

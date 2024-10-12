@@ -52,6 +52,7 @@ def main():
                     score.sub()
                     life_manager.lose_life()
                     player.position = pygame.Vector2(PLAYER_X, PLAYER_Y)    # teleports to the starting position
+                    player.acceleration = 0    
                     for asteroid in asteroids:
                         asteroid.kill()
                     for line in explosion_lines:
